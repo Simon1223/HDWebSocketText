@@ -1,0 +1,1 @@
+../../../LFImagePickerController/LFImagePickerController/vendors/LFGifPlayer/LFGifPlayerManager.h

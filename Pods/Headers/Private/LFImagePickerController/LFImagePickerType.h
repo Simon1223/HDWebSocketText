@@ -1,0 +1,1 @@
+../../../LFImagePickerController/LFImagePickerController/class/define/LFImagePickerType.h

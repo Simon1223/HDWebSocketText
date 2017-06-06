@@ -1,0 +1,1 @@
+../../../LFImagePickerController/LFImagePickerController/class/editView/toolBar/LFTextBar.h

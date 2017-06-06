@@ -1,0 +1,1 @@
+../../../LFImagePickerController/LFImagePickerController/vendors/JRPickColorView/JRPickColorView.h

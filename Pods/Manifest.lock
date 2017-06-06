@@ -1,0 +1,27 @@
+PODS:
+  - JSQMessagesViewController (7.3.4):
+    - JSQSystemSoundPlayer (~> 2.0.1)
+  - JSQSystemSoundPlayer (2.0.1)
+  - LFImagePickerController (1.1.9):
+    - LFImagePickerController/JRPickColorView (= 1.1.9)
+    - LFImagePickerController/LFGifPlayer (= 1.1.9)
+    - LFImagePickerController/LFToGIF (= 1.1.9)
+  - LFImagePickerController/JRPickColorView (1.1.9)
+  - LFImagePickerController/LFGifPlayer (1.1.9)
+  - LFImagePickerController/LFToGIF (1.1.9)
+  - SocketRocket (0.5.1)
+
+DEPENDENCIES:
+  - JSQMessagesViewController
+  - LFImagePickerController
+  - SocketRocket
+
+SPEC CHECKSUMS:
+  JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
+  JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  LFImagePickerController: c389ef710300d4d15192028f2ab2a54cb32438a7
+  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
+
+PODFILE CHECKSUM: e30e8dac053904781a463ad9bef7ac9426af7876
+
+COCOAPODS: 1.0.1
