@@ -6,8 +6,22 @@
 //  Copyright © 2017年 Simon.H. All rights reserved.
 //
 
-#import <JSQMessagesViewController/JSQMessagesViewController.h>
+#import "JSQMessages.h"
+#import "ChatModel.h"
+#import "NSUserDefaults+DemoSettings.h"
+
+@class ChatViewController;
+
+@protocol JSQDemoViewControllerDelegate <NSObject>
+
+- (void)didDismissJSQDemoViewController:(ChatViewController *)vc;
+
+@end
 
 @interface ChatViewController : JSQMessagesViewController<UIActionSheetDelegate, JSQMessagesComposerTextViewPasteDelegate>
+
+@property (weak, nonatomic) id<JSQDemoViewControllerDelegate> delegateModal;
+@property (strong, nonatomic) ChatModel *chatModel;
+
 
 @end

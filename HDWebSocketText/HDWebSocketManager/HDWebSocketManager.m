@@ -22,7 +22,7 @@ dispatch_async(dispatch_get_main_queue(), block);\
 
 @interface HDWebSocketManager ()<SRWebSocketDelegate>
 
-@property (nonatomic, copy) SRWebSocket webSocket;
+@property (nonatomic, copy) SRWebSocket *webSocket;
 @property (nonatomic, copy) NSTimer *heartBeat; //心跳计时器
 @property (nonatomic, assign) NSTimeInterval reconnectTime; //重连时长
 
@@ -84,7 +84,7 @@ dispatch_async(dispatch_get_main_queue(), block);\
         _heartBeat = [NSTimer scheduledTimerWithTimeInterval:3*60 repeats:YES block:^(NSTimer * _Nonnull timer) {
             NSLog(@"heart");
             //和服务端约定好发送什么作为心跳标识，尽可能的减小心跳包大小
-            [weakSelf sendMsg:@"heart"];
+            [weakSelf sendMessage:@"heart"];
         }];
         [[NSRunLoop currentRunLoop] addTimer:_heartBeat forMode:NSRunLoopCommonModes];
     });
@@ -120,12 +120,13 @@ dispatch_async(dispatch_get_main_queue(), block);\
         [_webSocket closeWithCode:DisconnectTypeClient reason:@"客户端主动断开"];
         _webSocket = nil;
     }
+    self.isConnected = NO;
 }
 
 //发送消息
 - (void)sendMessage:(NSData *)message
 {
-    [webSocket send:message];
+    [_webSocket send:message];
 }
 
 //重连机制
@@ -168,6 +169,7 @@ dispatch_async(dispatch_get_main_queue(), block);\
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket
 {
     NSLog(@"连接成功");
+    self.isConnected = YES;
     //连接成功了开始发送心跳
     [self initHeartBeat];
 }
@@ -176,6 +178,7 @@ dispatch_async(dispatch_get_main_queue(), block);\
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error
 {
     NSLog(@"连接失败.....\n%@",error);
+    self.isConnected = NO;
     //失败了就去重连
     [self reconnect];
 }

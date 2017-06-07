@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "HDWebSocketManager.h"
 
 @interface AppDelegate ()
 
@@ -14,9 +15,15 @@
 
 @implementation AppDelegate
 
+- (void)initWebSocket
+{
+    [[HDWebSocketManager shareInstance] connect];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    [self initWebSocket];
+    
     return YES;
 }
 
